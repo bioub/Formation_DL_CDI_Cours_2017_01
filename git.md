@@ -53,3 +53,23 @@ et y indiquer tous les fichiers ou dossiers à ignorer, exemple :
     *.psd
     vendor
     
+Cloner un dépôt
+---------------
+
+    git clone URL_DU_DEPOT
+    git clone https://github.com/bioub/Formation_Git_2017_01.git
+    
+Synchroniser des dépôts
+-----------------------
+
+Rappatrier les commits
+
+    git pull -u origin master
+    git pull
+    
+Publier vos commits
+
+    git push
+    
+Pour pouvoir faire un `git push` il faut être à jour, c'est à dire faire un `git pull`
+si nécessaire.
