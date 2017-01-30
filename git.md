@@ -40,3 +40,16 @@ Pour créer une version à partir des fichiers ajouté à l'index :
 Pour voir l'historique des modifications
 
     git log
+    git log --oneline
+    
+Ignorer des fichiers
+--------------------
+
+Pour ignore un fichier, il suffit de versionner un fichier nommé .gitignore
+et y indiquer tous les fichiers ou dossiers à ignorer, exemple :
+
+    .idea
+    *.tmp
+    *.psd
+    vendor
+    
