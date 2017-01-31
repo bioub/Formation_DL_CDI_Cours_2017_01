@@ -21,9 +21,9 @@ Commandes de base
 
 Une modification peut passer par 3 états :
 
-* untracked : pas prise en compte pour la prochaine version
-* cached/indexed : prise en compte pour la prochaine version
-* commited : sauvegardée
+* untracked (working directory) : pas prise en compte pour la prochaine version
+* cached/indexed (staging area) : prise en compte pour la prochaine version
+* commited (git repository) : sauvegardée
 
 Pour surveiller l'état des modifications on utilise la commande
 
