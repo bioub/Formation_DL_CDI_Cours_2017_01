@@ -11,40 +11,43 @@ class Contact
     protected $prenom;
     protected $nom;
 
-    /**
-     * @return mixed
-     */
+    // Le commentaire du dessous aide PHPStorm à comprendre que la propriété
+    // est de type Societe
+    /** @var Societe */
+    protected $societe;
+
     public function getPrenom()
     {
         return $this->prenom;
     }
 
-    /**
-     * @param mixed $prenom
-     * @return Contact
-     */
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getNom()
     {
         return $this->nom;
     }
 
-    /**
-     * @param mixed $nom
-     * @return Contact
-     */
     public function setNom($nom)
     {
         $this->nom = $nom;
         return $this;
     }
+
+    public function getSociete()
+    {
+        return $this->societe;
+    }
+
+    public function setSociete($societe)
+    {
+        $this->societe = $societe;
+        return $this;
+    }
+
 
 }
