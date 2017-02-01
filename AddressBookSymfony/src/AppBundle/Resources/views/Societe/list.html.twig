@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+<style>
+    body {
+        background: mediumpurple;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Societe:list page</h1>
+    <p>Heure : {{ heure }}</p>
+    <p>Prénom : {{ contact.prenom }}</p>
+
+
+{% endblock %}
