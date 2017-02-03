@@ -1,0 +1,23 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ societe.nom }}{% endblock %}
+
+{% block body %}
+    <h2>Détails d'une société</h2>
+    <div class="row">
+        <div class="col-md-2">
+            <b>Nom</b>
+        </div>
+        <div class="col-md-10">
+            {{ societe.nom }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <b>Ville</b>
+        </div>
+        <div class="col-md-10">
+            {{ societe.ville }}
+        </div>
+    </div>
+{% endblock %}

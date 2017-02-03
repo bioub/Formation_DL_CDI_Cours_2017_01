@@ -1,17 +1,17 @@
 {% extends "::base.html.twig" %}
 
-{% block stylesheets %}
-<style>
-    body {
-        background: mediumpurple;
-    }
-</style>
-{% endblock %}
+{% block title %}Liste des sociétés{% endblock %}
 
 {% block body %}
-    <h1>Welcome to the Societe:list page</h1>
-    <p>Heure : {{ heure }}</p>
-    <p>Prénom : {{ contact.prenom }}</p>
-
-
+    <h2>Liste des sociétés</h2>
+    <table class="table table-striped table-hover">
+        {% for societe in societes %}
+        <tr>
+            <td>{{ societe.nom }}</td>
+            <td>
+                <a href="{{ path('app_societe_show', {'id': societe.id}) }}" class="btn btn-primary btn-xs">Afficher</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
