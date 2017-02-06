@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contact
@@ -22,16 +23,16 @@ class Contact
     protected $id;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=40)
+     * @Assert\NotBlank(message="Le prénom est obligatoire")
+     * @Assert\Length(min="2", max="40")
      */
     protected $prenom;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nom_de_famille", type="string", length=40)
+     * @ORM\Column(type="string", length=40)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="2", max="40")
      */
     protected $nom;
 

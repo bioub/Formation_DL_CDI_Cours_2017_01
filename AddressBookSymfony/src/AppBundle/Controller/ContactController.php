@@ -2,10 +2,12 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\ContactType;
 use AppBundle\Repository\ContactRepository;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/contacts")
@@ -32,20 +34,35 @@ class ContactController extends Controller
     public function showAction($id)
     {
         $repo = $this->getDoctrine()->getRepository('AppBundle:Contact');
-        $contact = $repo->find($id);
+        $entity = $repo->find($id);
 
         return $this->render('AppBundle:Contact:show.html.twig', array(
-            'contact' => $contact
+            'contact' => $entity
         ));
     }
 
     /**
      * @Route("/ajouter")
      */
-    public function addAction()
+    public function addAction(Request $request)
     {
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $contact = $form->getData();
+            $em = $this->getDoctrine()->getEntityManager();
+
+            $em->persist($contact);
+            $em->flush();
+
+            return $this->redirectToRoute('app_contact_show', [
+                'id' => $contact->getId()
+            ]);
+        }
+
         return $this->render('AppBundle:Contact:add.html.twig', array(
-            // ...
+            'contactForm' => $form->createView()
         ));
     }
 
