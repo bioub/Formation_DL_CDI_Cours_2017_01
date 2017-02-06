@@ -12,6 +12,7 @@
             {{ societe.nom }}
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-2">
             <b>Ville</b>
@@ -20,4 +21,20 @@
             {{ societe.ville }}
         </div>
     </div>
+
+    {% if societe.contacts | length %}
+    <div class="row">
+        <div class="col-md-2">
+            <b>Contacts</b>
+        </div>
+        <div class="col-md-10">
+            <ul>
+                {% for contact in societe.contacts %}
+                <li>{{ contact.prenom }} {{ contact.nom }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+
 {% endblock %}

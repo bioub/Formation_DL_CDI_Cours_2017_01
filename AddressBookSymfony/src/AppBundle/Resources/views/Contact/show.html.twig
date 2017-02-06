@@ -12,6 +12,7 @@
             {{ contact.prenom }}
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-2">
             <b>Nom</b>
@@ -20,4 +21,16 @@
             {{ contact.nom }}
         </div>
     </div>
+
+    {% if contact.societe %}
+    <div class="row">
+        <div class="col-md-2">
+            <b>Société</b>
+        </div>
+        <div class="col-md-10">
+            {{ contact.societe.nom }}
+        </div>
+    </div>
+    {% endif %}
+
 {% endblock %}

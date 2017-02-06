@@ -1,7 +1,29 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}AppBundle:Societe:add{% endblock %}
+{% block title %}Ajouter une société{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Societe:add page</h1>
+    <h2>Ajouter une société</h2>
+    {{ form_start(societeForm, {'attr': {'novalidate': 'novalidate'} }) }}
+    {{ form_row(societeForm.nom) }}
+    {{ form_row(societeForm.ville) }}
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-2">
+            <button type="submit" class="btn btn-primary">
+                Ajouter
+            </button>
+        </div>
+    </div>
+    {{ form_end(societeForm) }}
 {% endblock %}
+
+{#
+{% block stylesheets %}
+<style>
+    label {
+        display: inline-block;
+        width: 100px;
+    }
+</style>
+{% endblock %}
+#}

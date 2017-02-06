@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\SocieteType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/societes")
@@ -40,10 +42,25 @@ class SocieteController extends Controller
     /**
      * @Route("/ajouter")
      */
-    public function addAction()
+    public function addAction(Request $request)
     {
-        return $this->render('AppBundle:Societe:add.html.twig', array(
+        $form = $this->createForm(SocieteType::class);
+        $form->handleRequest($request);
 
+        if ($form->isValid()) {
+            $societe = $form->getData();
+            $em = $this->getDoctrine()->getEntityManager();
+
+            $em->persist($societe);
+            $em->flush();
+
+            return $this->redirectToRoute('app_societe_show', [
+                'id' => $societe->getId()
+            ]);
+        }
+
+        return $this->render('AppBundle:Societe:add.html.twig', array(
+            'societeForm' => $form->createView()
         ));
     }
 

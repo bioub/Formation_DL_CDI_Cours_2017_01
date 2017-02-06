@@ -38,7 +38,7 @@ class Contact
 
     /**
      * @var Societe
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Societe", inversedBy="contacts")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Societe")
      */
     protected $societe;
 
