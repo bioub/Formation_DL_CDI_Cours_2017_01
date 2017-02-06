@@ -49,7 +49,7 @@ class ContactController extends Controller
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $contact = $form->getData();
             $em = $this->getDoctrine()->getEntityManager();
 

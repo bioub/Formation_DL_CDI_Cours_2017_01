@@ -47,7 +47,7 @@ class SocieteController extends Controller
         $form = $this->createForm(SocieteType::class);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $societe = $form->getData();
             $em = $this->getDoctrine()->getEntityManager();
 

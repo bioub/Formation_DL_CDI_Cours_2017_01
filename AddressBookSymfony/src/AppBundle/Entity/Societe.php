@@ -135,4 +135,9 @@ class Societe
     {
         return $this->contacts;
     }
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
 }
