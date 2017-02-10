@@ -1,0 +1,6 @@
+services:
+    prepavenirbootstrap.twig_extension:
+        class: Prepavenir\BootstrapBundle\Twig\BootstrapExtension
+        public: false
+        tags:
+            - { name: twig.extension }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/prepavenirbootstrap/css/bootstrap.css') }}">
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -45,8 +45,8 @@
         <div class="container">
         {% block body %}{% endblock %}
         </div>
-        <script src="{{ asset('js/jquery-3.1.1.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/prepavenirbootstrap/js/jquery-3.1.1.js') }}"></script>
+        <script src="{{ asset('bundles/prepavenirbootstrap/js/bootstrap.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

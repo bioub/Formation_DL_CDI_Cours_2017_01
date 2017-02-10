@@ -25,7 +25,7 @@ class Contact
     /**
      * @ORM\Column(type="string", length=40)
      * @Assert\NotBlank(message="Le prénom est obligatoire")
-     * @Assert\Length(min="2", max="40")
+     * @Assert\Length(min="2", minMessage="Le prénom est trop court", max="40")
      */
     protected $prenom;
 
@@ -62,7 +62,7 @@ class Contact
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
-    
+
         return $this;
     }
 
@@ -86,7 +86,7 @@ class Contact
     public function setNom($nom)
     {
         $this->nom = $nom;
-    
+
         return $this;
     }
 
@@ -110,7 +110,7 @@ class Contact
     public function setSociete(\AppBundle\Entity\Societe $societe = null)
     {
         $this->societe = $societe;
-    
+
         return $this;
     }
 
