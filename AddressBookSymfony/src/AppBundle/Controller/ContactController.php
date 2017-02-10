@@ -21,7 +21,7 @@ class ContactController extends Controller
     {
         $repo = $this->getDoctrine()->getRepository('AppBundle:Contact');
 
-        $contacts = $repo->findAll();
+        $contacts = $repo->findBy([], ['prenom' => 'ASC']);
 
         return $this->render('AppBundle:Contact:list.html.twig', array(
             'contacts' => $contacts
@@ -56,9 +56,10 @@ class ContactController extends Controller
             $em->persist($contact);
             $em->flush();
 
-            return $this->redirectToRoute('app_contact_show', [
-                'id' => $contact->getId()
-            ]);
+            $this->addFlash('success',
+                "Le contact {$contact->getPrenom()} {$contact->getNom()} a bien été créé");
+
+            return $this->redirectToRoute('app_contact_list');
         }
 
         return $this->render('AppBundle:Contact:add.html.twig', array(
